@@ -51,7 +51,7 @@ def create():
         return jsonify({"success": True, "message": "this is the create endpoint"}), 201
     
     if request.method == 'POST':
-        request.data = json.loads(request.data)
+        request_data = json.loads(request.data)
         name = request_data['name']
         contact = ContactModel(name=name)
         db.session.add(contact)
